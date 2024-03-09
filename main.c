@@ -33,7 +33,7 @@ int isValidGPA(float gpa) {
 }
 
 void addStudent() {
-    if (studentCount >= MAX_STUDENTS) {
+    if (studentCount >= maxStudents) {
         printf("Cannot add more students. Student limit reached.\n");
         return;
     }
