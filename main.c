@@ -38,37 +38,37 @@ void addStudent() {
         return;
     }
 
-    struct Student newStudent;
+    struct Student newStudent;//checks that both first and second name are entered
     printf("Enter student name (first and last name only): ");
     scanf("%s", newStudent.name);
-   /* if (strchr(newStudent.name, ' ') == NULL) {
+    if (strchr(newStudent.name, ' ') != NULL) {
         printf("Error: Please enter both first and last name.\n");
         return;
        
-    } */
+    } 
 
-    printf("Enter student ID (unique 7-digit number): ");
+    printf("Enter student ID (unique 7-digit number): ");// checks that 7 digit id is inputed
     scanf("%d", &newStudent.id);
     if (!isUniqueID(newStudent.id) || newStudent.id < 1000000 || newStudent.id > 9999999) {
         printf("Error: Invalid or non-unique ID.\n");
         return;
     }
 
-    printf("Enter student gender (M/F): ");
+    printf("Enter student gender (M/F): ");// gender input (case sensitive)
     scanf(" %c", &newStudent.gender);
     if (newStudent.gender != 'M' && newStudent.gender != 'F') {
         printf("Error: Invalid gender.\n");
         return;
     }
 
-    printf("Enter student academic year (1-5): ");
+    printf("Enter student academic year (1-5): ");// check the entry of a valid academic year
     scanf("%d", &newStudent.academicYear);
     if (!isValidAcademicYear(newStudent.academicYear)) {
         printf("Error: Invalid academic year.\n");
         return;
     }
 
-    printf("Enter student GPA (0.0-4.0): ");
+    printf("Enter student GPA (0.0-4.0): ");// checks entry of valid gpa
     scanf("%f", &newStudent.gpa);
     if (!isValidGPA(newStudent.gpa)) {
         printf("Error: Invalid GPA.\n");
@@ -79,7 +79,7 @@ void addStudent() {
     printf("Student added successfully.\n");
 }
 
-void removeStudent() {
+void removeStudent() {//function to remove student
     int idToRemove;
     printf("Enter student ID to remove: ");
     scanf("%d", &idToRemove);
@@ -103,7 +103,7 @@ void removeStudent() {
     }
 }
 
-void retrieveStudentData() {
+void retrieveStudentData() {// function to retrieve data
     int choice;
     printf("Retrieve student data by:\n");
     printf("1. Search by name\n");
@@ -111,7 +111,7 @@ void retrieveStudentData() {
     printf("Enter your choice: ");
     scanf("%d", &choice);
 
-    switch (choice) {
+    switch (choice) {//prompt user what identification to serach by
         case 1:
             printf("Search by name: ");
             char searchName[50];
@@ -143,7 +143,7 @@ void retrieveStudentData() {
     }
 }
 
-void updateStudentData() {
+void updateStudentData() {// function to update data
     int idToUpdate;
     printf("Enter student ID to update data: ");
     scanf("%d", &idToUpdate);
@@ -156,7 +156,7 @@ void updateStudentData() {
         }
     }
 
-    if (foundIndex != -1) {
+    if (foundIndex != -1) {// prompts user what data to change
         int updateChoice;
         printf("Choose data to update:\n");
         printf("1. Update Academic Year\n");
@@ -195,7 +195,7 @@ int main() {
         printf("5. Exit\n");
         printf("Enter your choice: ");
         scanf("%d", &choice);
-
+//main loop, cases for each input that call for differnt functions
         switch (choice) {
             case 1:
                 addStudent();
