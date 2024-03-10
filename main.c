@@ -38,10 +38,10 @@ void addStudent() {
         return;
     }
 
-    struct Student newStudent;//checks that both first and second name are entered
+    struct Student newStudent;// SHOULD check that both first and second name are entered
     printf("Enter student name (first and last name only): ");
     scanf("%s", newStudent.name);
-    if (strchr(newStudent.name, ' ') != NULL) {
+    if (strchr(newStudent.name, ' ') == NULL) {
         printf("Error: Please enter both first and last name.\n");
         return;
        
